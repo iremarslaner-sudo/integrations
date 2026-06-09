@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Shopify">
+  <rect width="72" height="72" rx="16" fill="#f0f8ea"/>
+  <path d="M21 22h30l-3 31H24L21 22Z" fill="#70B837"/>
+  <path d="M29 22c.5-7 4-11 8-11s7.5 4 8 11" fill="none" stroke="#70B837" stroke-width="4" stroke-linecap="round"/>
+  <text x="36" y="43" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" fill="#fff">S</text>
+</svg>

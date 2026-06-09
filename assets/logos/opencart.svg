@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="OpenCart">
+  <rect width="72" height="72" rx="16" fill="#f0f8ea"/>
+  <path d="M18 24h8l4 21h24" fill="none" stroke="#70B837" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 27h25l-5 13H33" fill="none" stroke="#70B837" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="34" cy="53" r="4" fill="#70B837"/>
+  <circle cx="51" cy="53" r="4" fill="#70B837"/>
+</svg>
