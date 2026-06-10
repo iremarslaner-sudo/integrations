@@ -421,6 +421,26 @@ h2 {
   color: var(--muted);
 }
 
+.step-image {
+  margin: 18px 0 0;
+}
+
+.step-image img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.step-image figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .guide-side {
   display: grid;
   gap: 16px;
