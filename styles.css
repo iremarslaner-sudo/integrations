@@ -421,6 +421,18 @@ h2 {
   color: var(--muted);
 }
 
+.detail-list {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.detail-list strong {
+  color: var(--ink);
+}
+
 .step-image {
   margin: 18px 0 0;
 }
@@ -447,7 +459,8 @@ h2 {
 }
 
 .guide-note,
-.related-guides {
+.related-guides,
+.download-box {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -455,9 +468,30 @@ h2 {
 }
 
 .guide-note h2,
-.related-guides h2 {
+.related-guides h2,
+.download-box h2 {
   margin-bottom: 12px;
   font-size: 20px;
+}
+
+.download-box p {
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+.download-links {
+  display: grid;
+  gap: 10px;
+}
+
+.download-links .button {
+  width: 100%;
+}
+
+.button.outline {
+  border-color: var(--green);
+  background: #fff;
+  color: var(--green);
 }
 
 .related-guides nav {

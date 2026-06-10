@@ -73,6 +73,12 @@
           <li>
             <h2>Çıkış adresi bilgilerini doldurun</h2>
             <p>Şehir, depo adresi, çalışma saatleri, açık günler, yetkili kişi, telefon ve kurye notunu girin.</p>
+            <ul class="detail-list">
+              <li>Şehir ve mağaza/depo adresi</li>
+              <li>Açılış saati, kapanış saati ve açık olunan günler</li>
+              <li>Yetkili kişinin ismi ve telefon numarası</li>
+              <li>Kurye için teslim alma notu</li>
+            </ul>
             <figure class="step-image">
               <img src="assets/guides/woocommerce-05-warehouse.png" alt="WooCommerce çıkış adresi ve depo bilgileri ekranı" />
               <figcaption>Kuryenin teslim alacağı çıkış noktasını bu alanda tanımlayın.</figcaption>
@@ -81,6 +87,18 @@
           <li>
             <h2>Genel gönderi parametrelerini ayarlayın</h2>
             <p>Araç tipi, varsayılan depo, ağırlık, komisyon, indirim, sabit gönderi bedeli ve ücretsiz teslimat eşiğini belirleyin.</p>
+            <ul class="detail-list">
+              <li><strong>Varsayılan araç tipi:</strong> Motor, araba gibi tercih ettiğiniz araç tipini seçin.</li>
+              <li><strong>Varsayılan depo:</strong> Gönderi fiyatı hesaplanırken ürünlerin alınacağı depo/mağaza adresi baz alınır.</li>
+              <li><strong>Varsayılan gönderi ağırlığı:</strong> Sipariş oluştururken ağırlık girilmezse buradaki değer kullanılır.</li>
+              <li><strong>Komisyon tutarı:</strong> Teslimat hizmeti için müşterinizden almak istediğiniz ek hizmet bedelidir.</li>
+              <li><strong>Sipariş teslimat indirimi:</strong> Müşteriye daha uygun fiyatlı teslimat göstermek için indirim tanımlayabilirsiniz.</li>
+              <li><strong>Sabit gönderi bedeli:</strong> Her sipariş için geçerli olacak sabit teslimat fiyatıdır.</li>
+              <li><strong>Ücretsiz teslimat eşiği:</strong> Belirli sepet tutarı üzerindeki teslimatı ücretsiz gösterebilirsiniz.</li>
+              <li><strong>Teslimat noktası notu:</strong> Kurye için teslimat özelinde görünen nottur.</li>
+              <li><strong>Beyan edilen değer:</strong> Gönderiyi değerinin belirli oranı karşılığında güvence altına alabilirsiniz.</li>
+              <li><strong>Çıkış noktasında satın alma:</strong> Kurye, gönderiyi teslim alırken ödeme yapabilir.</li>
+            </ul>
             <figure class="step-image">
               <img src="assets/guides/woocommerce-06-parameters.png" alt="WooCommerce genel gönderi parametreleri ekranı" />
               <figcaption>Varsayılan gönderi ayarları ödeme ve teslimat akışını belirler.</figcaption>
@@ -93,6 +111,10 @@
           <li>
             <h2>Durum senkronizasyonunu tamamlayın</h2>
             <p>BBK gönderi durumları WooCommerce sipariş durumlarıyla senkronize olacak şekilde kurulumu bitirin.</p>
+            <ul class="detail-list">
+              <li>Nakit ödemeli siparişler otomatik olarak kapıda ödemeli şekilde oluşturulabilir.</li>
+              <li>Durum senkronizasyonu sayesinde Banabikurye gönderi durumu WooCommerce sipariş durumuna yansır.</li>
+            </ul>
             <figure class="step-image">
               <img src="assets/guides/woocommerce-08-status-sync.png" alt="WooCommerce gönderi durumu senkronizasyon ekranı" />
               <figcaption>Durum senkronizasyonu siparişlerinizin otomatik güncellenmesini sağlar.</figcaption>
@@ -100,6 +122,19 @@
           </li>
         </ol>
         <aside class="guide-side">
+          <div class="download-box">
+            <h2>Eklenti</h2>
+            <p>WooCommerce eklentisi resmi indirme bağlantısından zip olarak yüklenir.</p>
+            <div class="download-links">
+              <a
+                class="button primary"
+                href="https://wordpress.dostavista.work/download/woo-dostavista-tr.zip"
+                target="_blank"
+                rel="noreferrer"
+                >WooCommerce eklentisini indir</a
+              >
+            </div>
+          </div>
           <div class="guide-note">
             <h2>Gereksinimler</h2>
             <p>PHP 7.0+, cURL extension, WordPress 5.2+ ve WooCommerce 3.7+ gerekir.</p>

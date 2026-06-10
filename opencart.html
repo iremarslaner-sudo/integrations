@@ -44,7 +44,7 @@
         <ol class="guide-steps">
           <li>
             <h2>Modül dosyalarını yükleyin</h2>
-            <p>OpenCart yönetim panelinde Extensions ve Installer alanına gidin. Teslimat modülünü ve eklentiyi yükleyin.</p>
+            <p>OpenCart yönetim panelinde Extensions ve Installer alanına gidin. Önce teslimat modülünü, ardından eklenti dosyasını yükleyin.</p>
             <figure class="step-image">
               <img src="assets/guides/opencart-01-installer.png" alt="OpenCart Extensions ve Installer ekranı" />
               <figcaption>Önce teslimat modülünü, ardından eklenti dosyasını yükleyin.</figcaption>
@@ -52,7 +52,7 @@
           </li>
           <li>
             <h2>Modification ayarını aktif edin</h2>
-            <p>Modifications bölümünde BBK OpenCart modification seçeneğini aktif hale getirin.</p>
+            <p>Modifications bölümünde BBK OpenCart modification seçeneğini seçin ve yeşil butonla aktif hale getirin. Ardından Extensions altında teslimat paketlerini de aktifleştirin.</p>
             <figure class="step-image">
               <img src="assets/guides/opencart-02-modification.png" alt="OpenCart Banabikurye modification aktif etme ekranı" />
               <figcaption>Modification aktif olduğunda teslimat paketleri kullanılabilir hale gelir.</figcaption>
@@ -61,6 +61,13 @@
           <li>
             <h2>Business API bilgilerini girin</h2>
             <p>BBK menüsünden Settings ve Business API settings alanına giderek token ve URL bilgilerini doldurun.</p>
+            <ul class="detail-list">
+              <li>Sol menüden Banabikurye alanına girin.</li>
+              <li>Settings ve Business API settings bölümünü açın.</li>
+              <li>Token ve URL alanlarını doldurun.</li>
+              <li>Token almak için BBK destek ekibine OpenCart 3.x entegrasyonu talebiyle ulaşın.</li>
+              <li>Üye girişi bilgilerinizi veya telefon numaranızı paylaşmanız gerekebilir.</li>
+            </ul>
             <figure class="step-image">
               <img src="assets/guides/opencart-03-api-settings.png" alt="OpenCart Banabikurye Business API settings ekranı" />
               <figcaption>Token ve URL bilgileri OpenCart mağazanızı BBK hesabınıza bağlar.</figcaption>
@@ -77,6 +84,14 @@
           <li>
             <h2>Depo bilgilerinizi ekleyin</h2>
             <p>Warehouse adresi, açılış saati, iletişim adı, telefon numarası ve kurye notu gibi bilgileri tamamlayın.</p>
+            <ul class="detail-list">
+              <li><strong>Name:</strong> Paket seçenekleri içinde görünecek depo adı.</li>
+              <li><strong>Warehouse address:</strong> Kuryenin gönderiyi teslim alacağı adres.</li>
+              <li>Depo açılış saati</li>
+              <li>İletişim adı ve soyadı</li>
+              <li>İletişim telefon numarası</li>
+              <li>Kurye için yorum veya teslim alma notu</li>
+            </ul>
             <figure class="step-image">
               <img src="assets/guides/opencart-05-warehouses.png" alt="OpenCart Banabikurye warehouses ekranı" />
               <figcaption>Warehouses bölümünden yeni çıkış noktası oluşturun.</figcaption>
@@ -89,13 +104,60 @@
           <li>
             <h2>Genel gönderi seçeneklerini düzenleyin</h2>
             <p>Araç tipi, varsayılan depo, ağırlık, komisyon, indirim, sabit fiyat ve ücretsiz teslimat eşiğini ayarlayın.</p>
+            <ul class="detail-list">
+              <li><strong>Varsayılan araç tipi:</strong> Motor veya araba gibi tercih ettiğiniz araç tipini seçin.</li>
+              <li><strong>Varsayılan depo:</strong> Fiyat hesaplamasında kullanılacak çıkış noktasıdır.</li>
+              <li><strong>Varsayılan gönderi ağırlığı:</strong> Siparişte ağırlık girilmezse bu değer kullanılır.</li>
+              <li><strong>Komisyon tutarı:</strong> Teslimat bedeline eklemek istediğiniz hizmet bedelidir.</li>
+              <li><strong>Sipariş teslimat indirimi:</strong> Müşteriye indirimli teslimat sunmak için kullanılır.</li>
+              <li><strong>Sabit gönderi bedeli:</strong> Her sipariş için geçerli olacak sabit teslimat fiyatıdır.</li>
+              <li><strong>Ücretsiz teslimat eşiği:</strong> Belirli sepet tutarı üzerindeki teslimat bedelini 0 TL gösterebilirsiniz.</li>
+              <li><strong>Teslimat noktası notu:</strong> Kurye adrese varmadan arama gibi özel notlar eklenebilir.</li>
+              <li><strong>Beyan edilen değer:</strong> Gönderiyi güvence altına almak için kullanılır.</li>
+              <li><strong>Çıkış noktasında satın alma:</strong> Kurye, gönderiyi teslim alırken ödeme yapabilir.</li>
+              <li><strong>Gönderi ağırlık birimi:</strong> Kurye gönderi detayında ağırlık bilgisini görebilir.</li>
+            </ul>
             <figure class="step-image">
               <img src="assets/guides/opencart-07-general-options.png" alt="OpenCart gönderi genel seçenekleri ekranı" />
               <figcaption>Genel seçenekler sipariş fiyatlama ve teslimat davranışını belirler.</figcaption>
             </figure>
           </li>
+          <li>
+            <h2>Nakit ödeme seçeneğini ayarlayın</h2>
+            <p>Nakit ödemeli sipariş oluşturulduğunda sipariş otomatik olarak kapıda ödemeli şekilde oluşturulabilir.</p>
+            <figure class="step-image">
+              <img src="assets/guides/opencart-08-cash-payment.png" alt="OpenCart nakit ödeme seçeneği ekranı" />
+              <figcaption>Nakit ödeme ayarı sipariş ödeme davranışını belirler.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <h2>API Callback ayarını tamamlayın</h2>
+            <p>API Callback URL alanındaki linki BBK destek ekibine gönderin. Gelen cevaptaki anahtarı API Callback secret key alanına girerek gönderilerinizi Banabikurye ve OpenCart arasında bağlayın.</p>
+            <figure class="step-image">
+              <img src="assets/guides/opencart-09-callback.png" alt="OpenCart API Callback URL ve secret key ekranı" />
+              <figcaption>Callback ayarı gönderi durumlarının OpenCart tarafına dönmesini sağlar.</figcaption>
+            </figure>
+          </li>
         </ol>
         <aside class="guide-side">
+          <div class="download-box">
+            <h2>Eklentiler</h2>
+            <p>OpenCart kurulumu için teslimat modülü ve ek eklenti dosyasını sırayla yükleyin.</p>
+            <div class="download-links">
+              <a
+                class="button primary"
+                href="assets/downloads/opencart-delivery-module.ocmod.zip"
+                download
+                >Teslimat modülünü indir</a
+              >
+              <a
+                class="button outline"
+                href="assets/downloads/opencart-localcopy-extension.ocmod.zip"
+                download
+                >OpenCart eklentisini indir</a
+              >
+            </div>
+          </div>
           <div class="guide-note">
             <h2>Token bilgisi</h2>
             <p>Token almak için BBK destek ekibine OpenCart 3.x entegrasyonu talebiyle ulaşabilirsiniz.</p>
