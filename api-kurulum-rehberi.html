@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Kurulum Rehberi | BBK Entegrasyonlar</title>
+  <meta name="description" content="BBK API ile kendi kendine entegrasyon yapmak için başlangıç checklist'i, örnek payloadlar, ilk test siparişi ve hata çözüm rehberi." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" data-screen-label="Brand">
+      <span class="word">banabikurye</span>
+      <span class="sub">Entegrasyonlar</span>
+    </a>
+    <nav>
+      <a href="index.html#ready-integrations">Hazır Entegrasyonlar</a>
+      <a href="index.html#api">API</a>
+      <a href="ai-entegrasyon.html">AI ile Entegrasyon</a>
+      <a href="index.html#support">Destek</a>
+    </nav>
+    <a class="btn btn-ink btn-sm" href="index.html#support">Destek Al</a>
+  </div>
+</header>
+
+<div class="crumb">
+  <div class="wrap">
+    <a href="index.html">Entegrasyonlar</a>
+    <span class="sep">›</span>
+    <span class="here">API Kurulum Rehberi</span>
+  </div>
+</div>
+
+<div class="hero" data-screen-label="Hero">
+  <div class="hero-card">
+    <div class="hero-blob"></div>
+    <div class="hero-l">
+      <span class="hero-eyebrow">
+        <span class="lt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <span class="eyebrow on-dark">API Kurulum</span>
+      </span>
+      <h1>BBK API entegrasyonunu <span class="accent">kendi kendinize</span> test edin.</h1>
+      <p class="lead">Başlamadan önce gerekli bilgileri hazırlayın, örnek payloadlarla ilk test siparişinizi oluşturun ve yayına geçmeden önce hata durumlarını kontrol edin.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#checklist">Checklist <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a class="btn btn-ghost" href="https://iremarslaner-sudo.github.io/banabikurye-api-docs/" target="_blank" rel="noreferrer">API dokümanı</a>
+      </div>
+    </div>
+    <div class="hero-r">
+      <div class="ttl">Bu rehberde</div>
+      <ul>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Başlangıç checklist'i</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Örnek JSON payloadlar</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>İlk test siparişi akışı</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Hata çözüm tablosu</li>
+      </ul>
+      <div class="time">Yayına geçmeden önce test edin</div>
+    </div>
+  </div>
+</div>
+
+<section id="checklist" data-screen-label="Başlangıç checklist">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Checklist</span>
+      <h2>Başlamadan önce bu bilgileri <span class="accent">hazırlayın.</span></h2>
+      <p>Bu liste hazırsa geliştiriciniz veya AI aracınız entegrasyonu daha az soru ile tamamlayabilir.</p>
+    </div>
+    <div class="self-grid">
+      <div class="self-card">
+        <span class="self-num">01</span>
+        <h3>API erişimi</h3>
+        <p>API key/token, test bilgileri ve yetkili hesap hazır olmalı. Anahtarı kod içine yazmayın; ortam değişkeni kullanın.</p>
+      </div>
+      <div class="self-card">
+        <span class="self-num">02</span>
+        <h3>Sipariş alanları</h3>
+        <p>Müşteri adı, telefon, teslimat adresi, ürün/tutar, ödeme tipi ve teslimat notu alanlarını eşleştirin.</p>
+      </div>
+      <div class="self-card">
+        <span class="self-num">03</span>
+        <h3>Çıkış adresi</h3>
+        <p>Depo/mağaza çıkış adresi, çalışma saatleri ve kurye notu gibi operasyonel bilgileri netleştirin.</p>
+      </div>
+      <div class="self-card">
+        <span class="self-num">04</span>
+        <h3>Webhook URL</h3>
+        <p>BBK durum bildirimlerini alacak güvenli bir URL hazırlayın ve ERP'de hangi alanın güncelleneceğini belirleyin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="payloads" class="payload-section" data-screen-label="Örnek payloadlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Örnek Payloadlar</span>
+      <h2>Geliştiricinin hızlıca deneyebileceği <span class="accent">temel örnekler.</span></h2>
+      <p>Aşağıdaki JSON alanları örnek amaçlıdır. Canlı entegrasyonda alan adlarını ve zorunlu parametreleri güncel BBK API dokümanına göre doğrulayın.</p>
+    </div>
+    <div class="payload-grid">
+      <div class="code-panel">
+        <div class="code-head">Fiyat hesaplama</div>
+        <pre>{
+  "pickup_address": {
+    "city": "Istanbul",
+    "district": "Kadikoy",
+    "address": "Caferaga Mah. Ornek Sok. No:1"
+  },
+  "delivery_address": {
+    "city": "Istanbul",
+    "district": "Besiktas",
+    "address": "Levent Mah. Ornek Cad. No:2"
+  },
+  "package": {
+    "weight": 1.2,
+    "vehicle_type": "motorcycle"
+  }
+}</pre>
+      </div>
+      <div class="code-panel">
+        <div class="code-head">Sipariş oluşturma</div>
+        <pre>{
+  "external_order_id": "ERP-100245",
+  "customer": {
+    "name": "Ayse Yilmaz",
+    "phone": "+905551112233"
+  },
+  "pickup_address_id": "warehouse_1",
+  "delivery_address": {
+    "city": "Istanbul",
+    "district": "Besiktas",
+    "address": "Levent Mah. Ornek Cad. No:2"
+  },
+  "payment_type": "prepaid",
+  "note": "Giris kata teslim edilecek"
+}</pre>
+      </div>
+      <div class="code-panel">
+        <div class="code-head">Sipariş takip</div>
+        <pre>{
+  "order_id": "bbk_order_12345",
+  "external_order_id": "ERP-100245"
+}</pre>
+      </div>
+      <div class="code-panel">
+        <div class="code-head">Webhook durum bildirimi</div>
+        <pre>{
+  "event": "order.status_changed",
+  "order_id": "bbk_order_12345",
+  "external_order_id": "ERP-100245",
+  "status": "delivered",
+  "occurred_at": "2026-06-12T10:30:00Z"
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="first-test" data-screen-label="İlk test siparişi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">İlk Test</span>
+      <h2>İlk test siparişini <span class="accent">sırayla</span> oluşturun.</h2>
+      <p>Bu akış başarılıysa entegrasyonun ana omurgası çalışıyor demektir.</p>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="rail"><div class="num">1</div><div class="line"></div></div>
+        <div class="body">
+          <h3>Fiyat hesaplayın</h3>
+          <p class="desc">Çıkış ve teslimat adresiyle fiyat hesaplama isteği gönderin. Cevapta servis verilebiliyor mu, fiyat ve tahmini süre dönüyor mu kontrol edin.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="rail"><div class="num">2</div><div class="line"></div></div>
+        <div class="body">
+          <h3>Test siparişi oluşturun</h3>
+          <p class="desc">ERP sipariş ID'nizi `external_order_id` gibi tekil bir alanla gönderin. Böylece BBK siparişi ile ERP kaydını sonradan eşleştirebilirsiniz.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="rail"><div class="num">3</div><div class="line"></div></div>
+        <div class="body">
+          <h3>Durumu sorgulayın</h3>
+          <p class="desc">Oluşan siparişin BBK sipariş ID'si veya kendi ERP sipariş ID'niz ile takip sorgusu yapın.</p>
+        </div>
+      </div>
+      <div class="step done">
+        <div class="rail"><div class="num"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="line"></div></div>
+        <div class="body">
+          <h3>Webhook'u doğrulayın</h3>
+          <p class="desc">Durum bildirimi geldiğinde ERP tarafında doğru siparişin doğru statüye geçtiğini kontrol edin. Test için geçici bir webhook URL'i kullanabilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="errors" class="error-section" data-screen-label="Hata çözümleri">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Hata Çözümleri</span>
+      <h2>En sık görülen sorunlar ve <span class="accent">kontrol noktaları.</span></h2>
+      <p>Bu tablo destek ekibine ihtiyaç duymadan ilk kontrolleri yapmanıza yardımcı olur.</p>
+    </div>
+    <div class="error-table">
+      <div class="error-row head"><span>Sorun</span><span>Kontrol edin</span><span>Çözüm</span></div>
+      <div class="error-row"><span>Yetkisiz istek</span><span>API key/token eksik veya hatalı olabilir.</span><span>Ortam değişkenini, header formatını ve aktif hesabı kontrol edin.</span></div>
+      <div class="error-row"><span>Adres hatası</span><span>İl, ilçe, açık adres veya koordinat eksik olabilir.</span><span>Adres alanlarını zorunlu alanlarla eşleştirin ve Türkçe karakter/format sorunlarını test edin.</span></div>
+      <div class="error-row"><span>Servis dışı bölge</span><span>Çıkış veya teslimat adresi kapsama dışında olabilir.</span><span>Fiyat hesaplama endpoint'iyle önce servis uygunluğunu kontrol edin.</span></div>
+      <div class="error-row"><span>Webhook gelmiyor</span><span>URL erişilebilir değil, HTTPS yok veya endpoint 2xx dönmüyor olabilir.</span><span>Webhook URL'inizi dışarıdan erişilebilir yapın ve gelen istekte hızlıca 200 yanıt dönün.</span></div>
+      <div class="error-row"><span>Sipariş eşleşmiyor</span><span>ERP sipariş ID'si BBK siparişiyle saklanmamış olabilir.</span><span>Her siparişte tekil `external_order_id` gönderin ve cevaptaki BBK ID'sini kaydedin.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="note" style="padding-block: 0 80px;" data-screen-label="Destek bilgileri">
+  <div class="wrap">
+    <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8h.01M11 12h1v5h1" stroke="#070B19" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="12" cy="12" r="9" stroke="#070B19" stroke-width="2.2"></circle></svg></div>
+    <div>
+      <h4>Destek alırken paylaşmanız gerekenler</h4>
+      <p>Endpoint adı, request zamanı, request ID varsa request ID, örnek payload, dönen hata mesajı ve beklenen sonucu birlikte gönderin. API key veya canlı müşteri verisi paylaşmayın.</p>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer">
+  <div class="wrap">
+    <div>
+      <div class="word">banabikurye</div>
+      <div class="legal">
+        BBK Entegrasyonlar · Mağazanızı BBK teslimat operasyonuna bağlayın.<br>
+        banabikurye · Borzo Delivery Turkey
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Entegrasyonlar</h4>
+      <a href="index.html#ready-integrations">Hazır Entegrasyonlar</a>
+      <a href="index.html#api">API</a>
+      <a href="api-kurulum-rehberi.html">API Kurulum Rehberi</a>
+      <a href="ai-entegrasyon.html">AI ile Entegrasyon</a>
+    </div>
+    <div class="fcol">
+      <h4>Platformlar</h4>
+      <a href="shopify.html">Shopify</a>
+      <a href="woocommerce.html">WooCommerce</a>
+      <a href="opencart.html">OpenCart</a>
+      <a href="t-soft.html">T-Soft</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 banabikurye</span>
+    <span>entegrasyon@banabikurye.com</span>
+  </div>
+</footer>
+</body>
+</html>
